@@ -24,6 +24,7 @@ function parseUrlParams() {
 
 function downloadWidgetJs(urlParams) {
     var widgetUrlMap = {
+        dev: 'https://www.evbdev.com/static/widgets/eb_widgets.js',
         qa: 'https://www.evbqa.com/static/widgets/eb_widgets.js',
         prod: 'https://www.eventbrite.com/static/widgets/eb_widgets.js'
     };
