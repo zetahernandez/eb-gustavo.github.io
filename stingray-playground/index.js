@@ -1,7 +1,7 @@
 function showWidget(eventId) {
     EBWidgets.createWidget({
         widgetType: 'checkout',
-        eventId: +eventId,
+        eventId: eventId,
         iframeContainerId: 'checkout_widget'
     });
 }
