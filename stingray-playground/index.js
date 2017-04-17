@@ -2,7 +2,10 @@ function showWidget(eventId) {
     EBWidgets.createWidget({
         widgetType: 'checkout',
         eventId: eventId,
-        iframeContainerId: 'checkout_widget'
+        iframeContainerId: 'checkout_widget',
+        onOrderComplete: function() {
+            console.log('Order Completed');
+        }
     });
 }
 
