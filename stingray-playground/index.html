@@ -5,10 +5,24 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Stingray Playground</title>
-        <script src="index.js"></script>
+
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <script type="text/babel" data-presets="es2015,stage-2" src="index.js"></script>
     </head>
 
     <body>
-        <div id="checkout_widget" style="border-style:solid; border-color:#D3D3D3;"></div>
+        <form action="" method="get">
+            Environment:
+            <select name="env">
+                <option value="dev">Dev</option>
+                <option value="qa">QA</option>
+                <option value="prod">Prod</option>
+            </select>
+            Event id:
+            <input type="text" name="eid">
+            <input type="submit" value="Reload">
+        </form>
+
+        <div id="checkout_widget" style="margin-top: 10px; border-style:solid; border-color:#D3D3D3;"></div>
     </body>
 </html>
