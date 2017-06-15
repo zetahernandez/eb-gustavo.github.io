@@ -57,10 +57,12 @@ const showWidget = (eventId) => {
     });
 };
 
-if (window.addEventListener) {
-    window.addEventListener('load', initApp, false);
-} else if (window.attachEvent) {
-    window.attachEvent('onload', initApp);
-} else {
-    window.onload = initApp;
-}
+// if (window.addEventListener) {
+//     window.addEventListener('load', initApp, false);
+// } else if (window.attachEvent) {
+//     window.attachEvent('onload', initApp);
+// } else {
+//     window.onload = initApp;
+// }
+
+initApp();
