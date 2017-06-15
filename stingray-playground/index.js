@@ -29,7 +29,7 @@ const parseUrlParams = () => {
 };
 
 const decode = (value) => (
-    decodeURIComponent(value.replace(replaceRegex, ' '));
+    decodeURIComponent(value.replace(replaceRegex, ' '))
 );
 
 const fillForm = (urlParams) => {
