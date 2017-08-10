@@ -1,4 +1,4 @@
-function showWidget(eventId, modal) {
+function showWidget(eventId, modal, aff) {
     var options = {
         widgetType: 'checkout',
         eventId: eventId,
@@ -14,10 +14,14 @@ function showWidget(eventId, modal) {
         options['iframeContainerId'] = 'checkout-widget';
     }
 
+    if (aff) {
+        options['affiliateCode'] = aff;
+    }
+
     EBWidgets.createWidget(options);
 }
 
-function buildWidgetContainer(eventId, modal) {
+function buildWidgetContainer(eventId, modal, aff) {
     if (modal === 'on') {
         var checkoutWidget = document.getElementById('checkout-widget')
         var button = document.createElement('button');
@@ -28,7 +32,7 @@ function buildWidgetContainer(eventId, modal) {
         checkoutWidget.appendChild(button);
     }
 
-    showWidget(eventId, modal);
+    showWidget(eventId, modal, aff);
 }
 
 function decode(value, replaceRegex) {
@@ -58,13 +62,14 @@ function downloadWidgetJs(urlParams) {
 
     scriptElement.type = 'text/javascript';
     scriptElement.src = widgetUrlMap[urlParams.env];
-    scriptElement.addEventListener('load', buildWidgetContainer.bind(null, urlParams.eid, urlParams.modal))
+    scriptElement.addEventListener('load', buildWidgetContainer.bind(null, urlParams.eid, urlParams.modal, urlParams.aff))
     document.getElementsByTagName('head')[0].appendChild(scriptElement);
 }
 
 function fillForm(urlParams) {
     document.getElementsByName('env')[0].value = urlParams.env;
     document.getElementsByName('eid')[0].value = urlParams.eid;
+    document.getElementsByName('aff')[0].value = urlParams.aff;
     document.getElementsByName('modal')[0].checked = urlParams.modal === 'on';
 }
 
